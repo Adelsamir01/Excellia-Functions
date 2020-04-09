@@ -236,7 +236,7 @@ exports.uploadImage = (req, res) => {
         }
       })
       .then(() => {
-        const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${
+        const imageUrl = `excellia-4c9b1.appspot.com${
           config.storageBucket
         }/o/${imageFileName}?alt=media`;
         return db.doc(`/users/${req.user.handle}`).update({ imageUrl });
