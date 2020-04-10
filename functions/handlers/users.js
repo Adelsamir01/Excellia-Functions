@@ -5,11 +5,16 @@ const config = require('../util/config');
 const firebase = require('firebase');
 firebase.initializeApp(config);
 
+
+
 const {
   validateSignupData,
   validateLoginData,
   reduceUserDetails
 } = require('../util/validators');
+
+//const storageRef = firebase.storage().ref();
+//const imagesRef = storageRef.child('images');
 
 // Sign users up
 exports.signup = (req, res) => {
@@ -48,7 +53,7 @@ exports.signup = (req, res) => {
         handle: newUser.handle,
         email: newUser.email,
         createdAt: new Date().toISOString(),
-        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${
+        imageUrl: `${imagesRef}${
           config.storageBucket
         }/o/${noImg}?alt=media`,
         userId
@@ -236,7 +241,7 @@ exports.uploadImage = (req, res) => {
         }
       })
       .then(() => {
-        const imageUrl = `excellia-4c9b1.appspot.com${
+        const imageUrl = `${imagesRef}${
           config.storageBucket
         }/o/${imageFileName}?alt=media`;
         return db.doc(`/users/${req.user.handle}`).update({ imageUrl });
