@@ -8,7 +8,8 @@ let db = {
       imageUrl: 'image/dsfsdkfghskdfgs/dgfdhfgdh',
       bio: 'Hello, my name is user, nice to meet you',
       website: 'https://user.com',
-      location: 'Lonodn, UK'
+      location: 'Lonodn, UK',
+      mycourses: ["ECEN101","MENG101"]
     }
   ],
   posts: [
@@ -37,7 +38,28 @@ let db = {
       type: 'like | comment',
       createdAt: '2019-03-15T10:59:52.798Z'
     }
-  ]
+  ],
+  courses: [
+    {
+      coursename: "NUmerical",
+      coursehandle: "MATH201",
+      
+
+
+
+    }
+
+
+  ],
+
+  sessions: [{
+
+
+
+
+
+  }]
+
 };
 const userDetails = {
   // Redux data
