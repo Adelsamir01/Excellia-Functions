@@ -23,6 +23,7 @@ const {
   addUserDetails,
   getAuthenticatedUser,
   getUserDetails,
+  getCourseDetails,
   markNotificationsRead
 } = require('./handlers/users');
 
@@ -43,6 +44,8 @@ app.post('/user', FBAuth, addUserDetails);
 app.get('/user', FBAuth, getAuthenticatedUser);
 app.get('/user/:handle', getUserDetails);
 app.post('/notifications', FBAuth, markNotificationsRead);
+//courses route
+app.get('/course/:handle', getCourseDetails);
 
 exports.api = functions.region('europe-west1').https.onRequest(app);
 

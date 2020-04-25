@@ -11,6 +11,18 @@ let db = {
       location: 'Lonodn, UK'
     }
   ],
+  courses: [
+    {
+      userId: 'lskjfkhsf547283',
+      email: 'user@email.com',
+      handle: 'course',
+      createdAt: '2019-03-15T10:59:52.798Z',
+      imageUrl: 'image/dsfsdkfghskdfgs/dgfdhfgdh',
+      bio: 'Hello, my name is user, nice to meet you',
+      website: 'https://user.com',
+      location: 'Lonodn, UK'
+    }
+  ],
   screams: [
     {
       userHandle: 'user',
@@ -51,6 +63,7 @@ const userDetails = {
     website: 'https://user.com',
     location: 'Lonodn, UK'
   },
+
   likes: [
     {
       userHandle: 'user',
@@ -61,4 +74,17 @@ const userDetails = {
       screamId: '3IOnFoQexRcofs5OhBXO'
     }
   ]
+};
+const courseDetails = {
+  // Redux data
+  credentials: {
+    userId: 'N43KJ5H43KJHREW4J5H3JWMERHB',
+    email: 'user@email.com',
+    handle: 'course',
+    createdAt: '2019-03-15T10:59:52.798Z',
+    imageUrl: 'image/dsfsdkfghskdfgs/dgfdhfgdh',
+    bio: 'Hello, my name is course, nice to meet you',
+    website: 'https://user.com',
+    location: 'Lonodn, UK'
+  },
 };

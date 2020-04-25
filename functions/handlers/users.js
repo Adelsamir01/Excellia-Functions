@@ -273,3 +273,40 @@ exports.markNotificationsRead = (req, res) => {
       return res.status(500).json({ error: err.code });
     });
 };
+// get courses data
+exports.getCourseDetails = (req, res) => {
+  let courseData = {};
+  db.doc(`/courses/${req.params.handle}`)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        courseData.user = doc.data();
+        return db
+          .collection('screams')
+          .where('courseHandle', '==', req.params.handle)
+          .orderBy('createdAt', 'desc')
+          .get();
+      } else {
+        return res.status(404).json({ errror: 'Course not found' });
+      }
+    })
+    .then((data) => {
+      courseData.screams = [];
+      data.forEach((doc) => {
+        courseData.screams.push({
+          body: doc.data().body,
+          createdAt: doc.data().createdAt,
+          userHandle: doc.data().userHandle,
+          userImage: doc.data().userImage,
+          likeCount: doc.data().likeCount,
+          commentCount: doc.data().commentCount,
+          screamId: doc.id
+        });
+      });
+      return res.json(courseData);
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.status(500).json({ error: err.code });
+    });
+};
