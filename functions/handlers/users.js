@@ -296,7 +296,7 @@ exports.getCourseDetails = (req, res) => {
         courseData.screams.push({
           body: doc.data().body,
           createdAt: doc.data().createdAt,
-          userHandle: doc.data().userHandle,
+          coueseHandle: doc.data().courseHandle,
           userImage: doc.data().userImage,
           likeCount: doc.data().likeCount,
           commentCount: doc.data().commentCount,
